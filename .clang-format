@@ -1,0 +1,70 @@
+# the following rule is to define style when the
+# difference occurs.
+Language: Cpp
+Standard: Cpp11
+BasedOnStyle: Google
+
+# LINE
+# Line width <= 100.
+ColumnLimit: 100
+
+# INDENT
+IndentWidth: 4
+UseTab: Never
+
+# FUNCTION
+BinPackParameters: false 
+BinPackArguments: false  
+AlignAfterOpenBracket: AlwaysBreak
+ContinuationIndentWidth: 4
+IndentWrappedFunctionNames: false
+AllowAllArgumentsOnNextLine: false
+AlwaysBreakAfterReturnType: None
+PenaltyReturnTypeOnItsOwnLine: 9999
+AllowAllParametersOfDeclarationOnNextLine: false
+
+# CLASS
+AccessModifierOffset: -4
+AllowAllConstructorInitializersOnNextLine: false
+
+# POINTER AND REFERENCE
+DerivePointerAlignment: false
+
+# SHORT BLOCK
+AllowShortBlocksOnASingleLine: Empty
+AllowShortFunctionsOnASingleLine: Inline
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLambdasOnASingleLine: Inline
+AllowShortLoopsOnASingleLine: false
+
+# BINARY EXPRESSION
+BreakBeforeBinaryOperators: None
+AlignOperands: Align
+
+# comment 
+AlignTrailingComments: true
+
+# INCLUDE
+# 1. Corresponding header
+# 2. C standard lib header
+# 3. C++ standard lib header
+# 4. Other Project header
+# 5. Our Project header
+SortIncludes: true
+IncludeBlocks: Regroup
+IncludeCategories:
+  - Regex:           '^<[^[:space:]]+\.h>$'
+    Priority:        1
+  - Regex:           '^<[^[:space:]]+>$'
+    Priority:        2
+  - Regex:           '^"bytestore/(version|bytestore(_(archive|tier))?)\.h"'
+    Priority:        4
+  - Regex:           '^"(bytestore/)?proto/.+\.h"'
+    Priority:        4
+  - Regex:           '^"(chunkserver|client|common|metaserver|pipeserver|rootserver|util)/.*\.h"'
+    Priority:        4      
+  - Regex:           '.*'
+    Priority:        3
+
+# OTHER
+BreakStringLiterals: true
